@@ -1,0 +1,15 @@
+﻿1. Phân tích lỗi
+Cả 3 lệnh đều dùng Out-File mà không có -Append, nên mỗi lần chạy sẽ ghi đè dữ liệu cũ.
+Sau khi chạy xong, file weekly_errors.txt chỉ còn dòng thông báo kết thúc quét, các dữ liệu trước đó bị mất.
+2. Sửa lỗi
+"[(Get-Date)] --- Ket thuc quet ---" | Out-File -Append weekly_errors.txt
+Em thêm -Append vào các lệnh để dữ liệu mới được ghi tiếp vào cuối file, không bị mất dữ liệu cũ.
+3. So sánh các lệnh
+Lệnh
+	Chức năng
+	Out-File
+	Ghi đè dữ liệu cũ.
+	Out-File -Append
+	Ghi nối vào cuối file.
+	Add-Content
+	Thêm nội dung mới vào cuối file.
